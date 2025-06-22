@@ -1,0 +1,41 @@
+# Python bytecode and cache
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Virtual environment
+venv/
+.env/
+.venv/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Encrypted vault files (DO NOT TRACK)
+data/vault.enc
+vault.key
+test.enc
+
+# Logs (if added later)
+*.log
+
+# Test outputs or temporary files
+*.tmp
+*.bak
+
+# IDE/editor settings (optional)
+.vscode/
+.idea/
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+
+# Jupyter Notebook checkpoints (if you ever use notebooks)
+.ipynb_checkpoints/
+
+# Secrets or environment files (if any)
+.env
