@@ -17,7 +17,7 @@ def encrypt_vault(data, key):
     json_data = json.dumps(data).encode()
     encrypted = fernet.encrypt(json_data)
 
-    # Ensure 'data/' folder exists
+    
     os.makedirs(os.path.dirname(VAULT_FILE), exist_ok=True)
 
     with open(VAULT_FILE, 'wb') as f:
@@ -27,7 +27,7 @@ def encrypt_vault(data, key):
 def decrypt_vault(key):
     """Decrypt the vault data, returning it as a Python dictionary."""
     if not os.path.exists(VAULT_FILE):
-        return {}  # Empty vault if not yet created
+        return {}  
     with open(VAULT_FILE, 'rb') as f:
         encrypted = f.read()
     fernet = Fernet(key)

@@ -1,10 +1,10 @@
 from password_manager.auth import authenticate
-from password_manager.cli import run_cli  # Your CLI function (to be developed)
+from password_manager.cli import run_cli  
 
 def main():
     if authenticate():
         print("Vault unlocked. You can now perform password manager operations.")
-        run_cli()  # CLI actions now only accessible after successful auth
+        run_cli() 
     else:
         print("Authentication failed. Exiting...")
 

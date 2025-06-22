@@ -6,7 +6,7 @@ def run_cli():
     master_password = input("Re-enter Master Password to derive vault key: ")
     key = derive_key(master_password)
 
-    # Load vault (encrypted)
+    
     vault_data = vault.decrypt_vault(key)
 
     while True:
@@ -23,7 +23,7 @@ def run_cli():
             password = input("Password: ")
 
             vault_data[site] = {"username": username, "password": password}
-            vault.encrypt_vault(vault_data, key)  # ✅ FIXED here
+            vault.encrypt_vault(vault_data, key)  
 
             print(f"Credential for {site} saved successfully.")
 
