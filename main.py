@@ -1,7 +1,9 @@
 from password_manager.auth import authenticate
 from password_manager.cli import run_cli  
 
+
 def main():
+    print("hi")
     if authenticate():
         print("Vault unlocked. You can now perform password manager operations.")
         run_cli() 
