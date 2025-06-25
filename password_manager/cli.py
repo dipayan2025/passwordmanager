@@ -1,12 +1,6 @@
-from password_manager import vault, config
-from password_manager.auth import derive_key
+def run_cli(key):
+    from password_manager import vault
 
-def run_cli():
-    """Simple CLI for password manager (called after successful authentication)."""
-    master_password = input("Re-enter Master Password to derive vault key: ")
-    key = derive_key(master_password)
-
-    
     vault_data = vault.decrypt_vault(key)
 
     while True:
@@ -21,21 +15,20 @@ def run_cli():
             site = input("Site: ")
             username = input("Username: ")
             password = input("Password: ")
-
             vault_data[site] = {"username": username, "password": password}
-            vault.encrypt_vault(vault_data, key)  
-
-            print(f"Credential for {site} saved successfully.")
+            vault.encrypt_vault(vault_data, key)
+            print(f"✅ Saved: {site}")
 
         elif choice == "2":
             if not vault_data:
                 print("Vault is empty.")
             else:
                 for site, creds in vault_data.items():
-                    print(f"Site: {site}, Username: {creds['username']}, Password: {creds['password']}")
+                    print(f"{site}: {creds['username']} | {creds['password']}")
 
         elif choice == "3":
-            print("Exiting Password Manager CLI.")
+            print("Exiting...")
             break
+
         else:
-            print("Invalid option. Try again.")
+            print("Invalid option.")

@@ -3,6 +3,8 @@ import json
 from cryptography.fernet import Fernet
 from hashlib import sha256
 import base64
+from password_manager import config
+
 
 VAULT_FILE = "data/vault.enc"
 
@@ -22,6 +24,9 @@ def encrypt_vault(data, key):
 
     with open(VAULT_FILE, 'wb') as f:
         f.write(encrypted)
+    # Also save a readable version for testing/debugging (optional)
+    with open(config.VAULT_JSON_PATH, 'w') as json_file:
+        json.dump(data, json_file, indent=4)
 
 
 def decrypt_vault(key):

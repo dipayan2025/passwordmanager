@@ -1,12 +1,13 @@
-from password_manager.auth import authenticate
-from password_manager.cli import run_cli  
-
+from password_manager.auth import authenticate, derive_key
+from password_manager.cli import run_cli
 
 def main():
-    print("hi")
+    print("🔐 Welcome to Password Manager CLI")
+    
     if authenticate():
-        print("Vault unlocked. You can now perform password manager operations.")
-        run_cli() 
+        master_password = input("Re-enter Master Password to unlock vault: ")
+        key = derive_key(master_password)
+        run_cli(key)  # Pass the derived key to CLI after successful auth
     else:
         print("Authentication failed. Exiting...")
 
