@@ -1,10 +1,22 @@
 {
-    "www.google.com": {
-        "username": "dip",
-        "password": "1234"
-    },
     "www.gmail.com": {
         "username": "rajdeep",
         "password": "23456"
+    },
+    "www.example.com": {
+        "username": "sneha",
+        "password": "2132"
+    },
+    "www.google.com": {
+        "username": "sam",
+        "password": "O3/-*aPH"
+    },
+    "gmail.com": {
+        "username": "testuser@gmail.com",
+        "password": "P@ssw0rd123!"
+    },
+    "spotify.com": {
+        "username": "musicmaniac",
+        "password": "Sp0tifyLove!"
     }
 }
